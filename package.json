@@ -4,7 +4,9 @@
   "description": "Chrome extension written for Codesmith CTRI 16 hackathon",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "reload": "open http://reload.extensions/",
+    "watch": "watch 'npm run reload' ./index.js",
+    "bundle": "browserify indexDev.js -o index.js"
   },
   "repository": {
     "type": "git",
