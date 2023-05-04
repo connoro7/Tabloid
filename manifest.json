@@ -9,14 +9,19 @@
       "24": "images/icon24.png",
       "32": "images/icon32.png" 
     },
-  "default_title": "Click Me",  
-    "default_popup": "note.html"
+  "default_title": "Tabloid\nClick to open",  
+    "default_popup": "index.html"
   },
+  "background": {
+      "service_worker": "background.js"},
   "content_scripts": [
     {
       "matches": ["*://*/"],
       "css": ["./style.css"],
       "js": ["./index.js"]
     }
-  ]
+  ], "permissions": [
+    "storage",
+    "tabs"
+ ]
 }

@@ -3,9 +3,12 @@
   "version": "1.0.0",
   "description": "Lightweight note taking extension for Chrome",
   "main": "index.js",
+  "watch": {
+    "test": ""
+  },
   "scripts": {
     "reload": "open http://reload.extensions/",
-    "watch": "watch 'npm run reload' ./index.js",
+    "watch": "npm-watch 'npm run reload' ./index.js",
     "bundle": "browserify indexDev.js -o index.js"
   },
   "repository": {
@@ -20,6 +23,7 @@
   "homepage": "https://github.com/connoro7/cs-hackathon#readme",
   "devDependencies": {
     "browser-sync": "^2.29.1",
-    "nodemon": "^2.0.22"
+    "browserify": "^17.0.0",
+    "npm-watch": "^0.11.0"
   }
 }

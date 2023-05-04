@@ -15,7 +15,7 @@ HTML:
 CSS:
 - styling
 - size of note
-- resizing
+- resizing --> FIX SIZE
 - scrolling on content overflow
 
 JS:
@@ -25,9 +25,9 @@ JS:
 - handle note saving
   --> event listen on text area update, save on event dispatch
 
-
-
-
+Stretch Goals:
+- Lock Note --> readonly = true
+- Markdown support
 
 ## Getting Started
 - 
@@ -44,7 +44,7 @@ JS:
 ## Deployment
 - 
 ## Built With
-- [Resource Name](Resource URL) - Resource description
+- Chrome Storage API - Notes are stored locally to your browser, and persist across browser windows.
 ## Contributing
 - Please read [CONTRIBUTING.md](#) for details on our code of conduct, and the process for submitting pull requests.
 ## Versioning
