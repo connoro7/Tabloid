@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
       textArea.value = note;
     }
   });
+  
   saveBtn.addEventListener('click', () => {
     const text = textArea.value;
 
@@ -31,11 +32,12 @@ document.addEventListener('DOMContentLoaded', () => {
   })
   
   clearBtn.onclick = () => {
-      localStorage.removeItem(key);
+    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+      const url = tabs[0].url;
+      localStorage.removeItem(url);
       textArea.value = ''
-        console.log('Note cleared')
-    };
-  })
+      console.log('Note cleared')
+    } ) } } )
 
 
 
