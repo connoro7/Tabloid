@@ -2,14 +2,18 @@
 document.addEventListener('DOMContentLoaded', () => {
   const noteChange = document.querySelector("#note");
   const saveNote = document.querySelector("#save");
-  const key = chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
+  let key = chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
     // Get the URL of the current tab
     const url = tabs[0].url;
   
     // Do something with the URL
     console.log(url);
-    return url.toString();
+    storeURL(url);
   });
+
+  function storeURL(url){
+    key = url;
+  }
   console.log(key);
   //const key = window.location.toString()
   //localStorage.removeItem(note);
