@@ -5,8 +5,8 @@
   "main": "index.js",
   "watch": {
     "bundle": {
-      "patterns": "indexDev.js",
-      "extensions": "js",
+      "patterns": ["indexDev.js","style.css","index.html"],
+      "extensions": ["js","css","html"],
       "verbose": true
     }
   },
