@@ -2,33 +2,58 @@
 document.addEventListener('DOMContentLoaded', () => {
   const noteChange = document.querySelector("#note");
   const saveNote = document.querySelector("#save");
-  let key = chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
-    // Get the URL of the current tab
-    const url = tabs[0].url;
+
+  // Get the current tab's URL
+chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
+  const url = tabs[0].url;
+
+  // Check if there's a note saved for this URL
+  const note = localStorage.getItem(url);
+
+  // If a note was found, display it in the text area
+  if (note) {
+    const noteChange = document.querySelector("#note");
+    noteChange.value = note;
+  }
+});
+
+  saveNote.addEventListener('click', () => {
+    const text = noteChange.value;
+
+    chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
+      // Get the URL of the current tab
+      const url = tabs[0].url;
+      localStorage.setItem(url, text);
+    });
+  })
+
   
-    // Do something with the URL
-    console.log(url);
-    storeURL(url);
-  });
+  //   // Do something with the URL
+  //  console.log(url);
+  //  const urlName = storeURL(url);
+
+  //  let note = localStorage[key]
+  //  if(note == null) {
+  //    note = "";
+  //    console.log('im null');
+  //  }
+  //  noteChange.value = note;
+  //  saveNote.onclick = () => {
+  //    //localStorage.setItem( note, noteChange )
+  //    console.log('here');
+  //    localStorage[url] = noteChange.value;
+  //  }
+ 
 
   function storeURL(url){
-    key = url;
+    const key = url.String();
+    
   }
-  console.log(key);
+  //console.log(key);
   //const key = window.location.toString()
   //localStorage.removeItem(note);
   //let noteContetnt = localStorage.getItem(note);
-  let note = localStorage[key]
-  if(note == null) {
-    note = "";
-    console.log('im null');
-  }
-  noteChange.value = note;
-  saveNote.onclick = () => {
-    //localStorage.setItem( note, noteChange )
-    console.log('here');
-    localStorage[key] = noteChange.value;
-  }
+
   // //saveNote.addEventListener("click", function(){
   //   console.log('heelo');
 
@@ -73,8 +98,7 @@ chrome.storage.local.get(["key"]).then((result) => {
 
 
 
-  })
-// });
+});
 
 //attach action.onClicked to extension button so that when clicked, it asynchronously preloads localStorage
 
