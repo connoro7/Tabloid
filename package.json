@@ -4,12 +4,16 @@
   "description": "Lightweight note taking extension for Chrome",
   "main": "index.js",
   "watch": {
-    "test": ""
+    "bundle": {
+      "patterns": "indexDev.js",
+      "extensions": "js",
+      "verbose": true
+    }
   },
   "scripts": {
     "reload": "open http://reload.extensions/",
-    "watch": "npm-watch 'npm run reload' ./index.js",
-    "bundle": "browserify indexDev.js -o index.js"
+    "bundle": "browserify indexDev.js -o index.js",
+    "watch": "npm-watch"
   },
   "repository": {
     "type": "git",
