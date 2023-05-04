@@ -1,5 +1,25 @@
 document.addEventListener('DOMContentLoaded', () => {
+  const noteChange = document.querySelector("#note");
+  const saveNote = document.querySelector("#save");
+  const key = browser.tabs.getCurrent();
+  //const key = window.location.toString()
+  //localStorage.removeItem(note);
+  //let noteContetnt = localStorage.getItem(note);
+  let note = localStorage[key]
+  if(note == null) {
+    note = "";
+    console.log('im null');
+  }
+  noteChange.value = note;
+  saveNote.onclick = () => {
+    //localStorage.setItem( note, noteChange )
+    localStorage[key] = noteChange.value;
+  }
+  // //saveNote.addEventListener("click", function(){
+  //   console.log('heelo');
 
+  // })
+  
 
   chrome.storage.local.set({
   'key1': 'value',    
@@ -17,19 +37,20 @@ chrome.storage.local.get(["key"]).then((result) => {
 });
 
   chrome.action.onClicked.addListener((tab) => {
+    chrome.scripting.executeScript
     console.log('clicked')
   });
   // get textarea div
   //add eventlistener to textareaelement
   //function should set item to local storage
-  let cache = {};
-  const note = document.querySelector('#note')
-  note.addEventListener("change", function (event) {
-    console.log('note change event dispatched')
-    cache = event.target.checked;
+  // let cache = {};
+  // const saveNote = document.querySelector('note')
+  // note.addEventListener("onchange", function (event) {
+  //   console.log('note change event dispatched')
+  //   cache = event.target.checked;
     
 
-    const key = window.location.toString()
+    
     //console.log(key);
     const value = 'textarea\ncontent'
 
@@ -39,7 +60,7 @@ chrome.storage.local.get(["key"]).then((result) => {
 
 
   })
-});
+// });
 
 //attach action.onClicked to extension button so that when clicked, it asynchronously preloads localStorage
 
