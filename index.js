@@ -4,36 +4,39 @@ document.addEventListener('DOMContentLoaded', () => {
   const saveBtn = document.querySelector("#saveBtn");
   const clearBtn = document.querySelector('#clearBtn')
 
-  // Get the full URL of the current tab, use as key for local storage
-  let key = chrome.tabs.query({ active: true, currentWindow: true }, async function(tabs) {
-    const url = await tabs[0].url;
-    (function storeURL(url) {
-      key = url;
-      console.log(key);
-    })(url);
-  });
+    // Get the current tab's URL
+  chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
+    const url = tabs[0].url;
   
-  let noteContent = localStorage.getItem(key)
-  if(noteContent === null) {
-    console.log('Existing note not found, creating new note');
-    noteContent = "";
-  }
-  textArea.value = noteContent;
-
-  saveBtn.onclick = () => {
-    console.log('Saving note...');
-    try {
-      localStorage[key] = textArea.value;
-      console.log('Note saved');
-    } catch (error) {
-      console.log(error)
+    // Check if there's a note saved for this URL
+    const note = localStorage.getItem(url);
+    
+    // If a note was found, display it in the text area
+    if (note) {
+      // const textArea = document.querySelector("#note");
+      textArea.value = note;
     }
-  }
+  });
+  saveBtn.addEventListener('click', () => {
+    const text = textArea.value;
 
+    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+      console.log('Saving note...');
+      // Get the URL of the current tab
+      const url = tabs[0].url;
+      localStorage.setItem(url, text);
+      console.log('Note saved');
+
+    });
+  })
+  
   clearBtn.onclick = () => {
-    localStorage.removeItem(key);
-    textArea.value = ''
-      console.log('Note cleared')
-  };
-});
+      localStorage.removeItem(key);
+      textArea.value = ''
+        console.log('Note cleared')
+    };
+  })
+
+
+
 },{}]},{},[1]);
