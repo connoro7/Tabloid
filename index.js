@@ -2,9 +2,15 @@
 document.addEventListener('DOMContentLoaded', () => {
   const noteChange = document.querySelector("#note");
   const saveNote = document.querySelector("#save");
-  const key = chrome.tabs.query({ active: true, currentWindow: true }, function(tabs){
-      const url = tabs[0].url;
-  })
+  const key = chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
+    // Get the URL of the current tab
+    const url = tabs[0].url;
+  
+    // Do something with the URL
+    console.log(url);
+    return url.toString();
+  });
+  console.log(key);
   //const key = window.location.toString()
   //localStorage.removeItem(note);
   //let noteContetnt = localStorage.getItem(note);
@@ -16,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
   noteChange.value = note;
   saveNote.onclick = () => {
     //localStorage.setItem( note, noteChange )
+    console.log('here');
     localStorage[key] = noteChange.value;
   }
   // //saveNote.addEventListener("click", function(){
