@@ -2,16 +2,42 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  border-radius: 5%;
+  background-color: transparent;
+}
+html {
+  background-color: transparent;
+}
+
+body {
+  border-radius: 5%;
+  background-color: transparent;
 }
 
 #note {
-  overflow-y: scroll;
+  overflow-y: auto;
   border: 1px solid #ccc;
-  padding: 10px;
+  padding: 1rem;
+  border-radius: 5%;
+  background-color: transparent;
+}
+
+div {
+  margin: 0;
+  padding: 0;
 }
 
 textarea {
   resize: none;
   margin: 0;
   padding: 0;
+  border-radius: 5%;
+  background-color: transparent;
+}
+
+button {
+  border-radius: 10px;
+  margin: 0.25rem 0.5rem;
+  padding: 0 1rem;
+  font-size: 1.4rem;
 }
