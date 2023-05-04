@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "Tabloid",
+  "description": "Lightweight note taking app for each open tab.",
+  "version": "1.0",
+  "action": {
+    "default_icon": {            
+      "16": "images/icon16.png",
+      "24": "images/icon24.png",
+      "32": "images/icon32.png" 
+    },
+  "default_title": "Click Me",  
+    "default_popup": "note.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*/"],
+      "css": ["./style.css"],
+      "js": ["./index.js"]
+    }
+  ]
+}
