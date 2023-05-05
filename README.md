@@ -1,33 +1,7 @@
-
-##
-
 # Tabloid
 
-> Codesmith CTRI 16 Hackathon
-> Connor Dillon and David Chuang
-
-
-## Project Requirements:
-
-HTML:
-- build html for popup
-
-CSS:
-- styling
-- size of note
-- resizing --> FIX SIZE
-- scrolling on content overflow
-
-JS:
-- handle note storage (localstorage?)
-  - handle multiple tabs with the same URL
-- handle tab close logic
-- handle note saving
-  --> event listen on text area update, save on event dispatch
-
-Stretch Goals:
-- Lock Note --> readonly = true
-- Markdown support
+This is Tabloid. A lightweight, no-nonsense note taking app built to keep your thoughts safe and easily accessible. Notes are tied to the URL of the active tab and saved directly to the browser.
+Tabloid offers data persistence across unlimited tabs and unlimited windows - keeping the web and your notes all in one place.
 
 ## Getting Started
 
@@ -36,17 +10,25 @@ Stretch Goals:
 - Run the bundler, `npm run bundle`
 - Load unpacked app into Chrome
 - Open Tabloid in the extension toolbar
-- Tabloid pages are saved according to the tab URL
-    - Accidentally close the tab? No problem! Your notes will be there when you come back.
-    - Data persistence across multiple tabs with the same URL, and across multiple browsers.
 
-## Built With
-- localStorage API - Notes are stored locally to your browser, and persist across browser windows.
+## Current Goals
+
+- Themes
+- Font options
+- Settings page
+- Markdown support
+- Syntax highlighting
+- Lock/Unlock note
+- Batch export notes
+- Notes index/searchable
+- Cloud storage sync
+- Cloud storage backup
 
 ## Authors
+
 - **Connor Dillon** - _Developer_ - [connoro7](https://github.com/connoro7)
-- See also the list of [contributors](REPO-BASE-URL/contributors) who participated in this project.
+- **David Chuang** - _Developer_ - [davidchuang5](https://github.com/davidchuang5)
 
 ## License
-- This project is licensed under the MIT License.
 
+- This project is licensed under the MIT License.
