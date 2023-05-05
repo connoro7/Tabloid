@@ -2,19 +2,15 @@
   <img src="https://raw.githubusercontent.com/connoro7/Tabloid/main/images/icon500.png" width="250" title="Tabloid">
 </p>
 
+
 <p align="center">
-  <img src="https://img.shields.io/chrome-web-store/users/xxxxxxxxxxxxxxxxxxx?style=for-the-badge">
-  <img src="https://img.shields.io/chrome-web-store/rating/xxxxxxxxxxxxxxx?style=for-the-badge">
-</p>
-<p align="center">
-  <img src="https://img.shields.io/github/v/tag/connoro7/Tabloid?style=for-the-badge">
+  <img src="https://img.shields.io/github/v/release/connoro7/Tabloid?style=for-the-badge">
   <img src="https://img.shields.io/github/issues/connoro7/Tabloid?style=for-the-badge">
   <img src="https://img.shields.io/github/contributors-anon/connoro7/Tabloid?style=for-the-badge">
 </p>
-
 <p align="center">
-  <img src="https://img.shields.io/badge/Brave-FF1B2D?style=for-the-badge&logo=Brave&logoColor=white">
-  <img src="https://img.shields.io/badge/Google_chrome-4285F4?style=for-the-badge&logo=Google-chrome&logoColor=white">
+  <img src="https://img.shields.io/chrome-web-store/users/xxxxxxxxxxxxxxxxxxx?style=for-the-badge">
+  <img src="https://img.shields.io/chrome-web-store/rating/xxxxxxxxxxxxxxx?style=for-the-badge">
 </p>
 
 # Tabloid
