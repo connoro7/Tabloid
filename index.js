@@ -37,7 +37,32 @@ document.addEventListener('DOMContentLoaded', () => {
       localStorage.removeItem(url);
       textArea.value = ''
       console.log('Note cleared')
-    } ) } } )
+    })
+  }
+      // Get the span elements
+      const savedMsg = document.getElementById("saved");
+      const clearedMsg = document.getElementById("cleared");
+      
+      // Add event listeners to the buttons
+      saveBtn.addEventListener("click", showSavedMsg);
+      clearBtn.addEventListener("click", showClearedMsg);
+      
+      function showSavedMsg() {
+        savedMsg.style.display = "block";
+        setTimeout(() => {
+          savedMsg.style.display = "none";
+        }, 1000);
+      }
+      
+      function showClearedMsg() {
+        clearedMsg.style.display = "block";
+        setTimeout(() => {
+          clearedMsg.style.display = "none";
+        }, 1000);
+      }
+
+
+})
 
 
 
