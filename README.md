@@ -14,6 +14,7 @@
   <img src="https://img.shields.io/chrome-web-store/rating/xxxxxxxxxxxxxxx?style=for-the-badge">
 </p>
 -->
+
 # Tabloid
 
 This is Tabloid. A lightweight, no-nonsense note taking app built to keep your thoughts safe and easily accessible. Notes are tied to the URL of the active tab and saved directly to the browser.
