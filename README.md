@@ -28,11 +28,17 @@ Tabloid offers data persistence across unlimited tabs and unlimited windows - ke
 
 ## Getting Started
 
-- Fork this repo
-- Install packages `npm install`
-- Run the bundler, `npm run bundle`
-- Load unpacked app into Chrome
-- Open Tabloid in the extension toolbar
+1) Fork this repo
+2) Install packages `npm install`
+3) Run the bundler, `npm run bundle`
+4) Load unpacked app into Chrome
+5) Open Tabloid in the extension toolbar
+6) `Right click` on the Tabloid note area > `Inspect` to open the Tabloid developer tools. 
+
+> Please note following Step 6:
+>
+> Tabloid and all of its data is siloed away from the parent Chrome window, keeping user data safe from other sites or applications.
+> As a result of this architecture, you cannot access Tabloid from the developer tools of the parent window.
 
 ## Authors
 
