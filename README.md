@@ -20,6 +20,10 @@
 This is Tabloid. A lightweight, no-nonsense note taking app built to keep your thoughts safe and easily accessible. Notes are tied to the URL of the active tab and saved directly to the browser.
 Tabloid offers data persistence across unlimited tabs and unlimited windows - keeping the web and your notes all in one place.
 
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/32769592/236403381-ffcf5049-d1c4-41ee-99f4-f3c8ccac0cfe.png" title="Tabloid Screenshot">
+</p>
+
 ---
 
 ## Getting Started
