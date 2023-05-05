@@ -29,19 +29,6 @@ Tabloid offers data persistence across unlimited tabs and unlimited windows - ke
 - Load unpacked app into Chrome
 - Open Tabloid in the extension toolbar
 
-## Current Goals
-
-- Themes
-- Font options
-- Settings page
-- Markdown support
-- Syntax highlighting
-- Lock/Unlock note
-- Batch export notes
-- Notes index/searchable
-- Cloud storage sync
-- Cloud storage backup
-
 ## Authors
 
 - **Connor Dillon** - _Developer_ - [connoro7](https://github.com/connoro7)
