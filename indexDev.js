@@ -1,7 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
   const textArea = document.querySelector("#note");
+  const settings = document.querySelector("#settings")
   const saveBtn = document.querySelector("#saveBtn");
-  const clearBtn = document.querySelector('#clearBtn')
+  const clearBtn = document.querySelector("#clearBtn")
+  const settingsBtn = document.querySelector("#settingsBtn");
+  const statusMsg = document.querySelector("status");
 
     // Get the current tab's URL
   chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
@@ -38,26 +41,46 @@ document.addEventListener('DOMContentLoaded', () => {
       console.log('Note cleared')
     })
   }
-      // Get the span elements
-      const savedMsg = document.getElementById("saved");
-      const clearedMsg = document.getElementById("cleared");
+
+  settingsBtn.addEventListener('click', () => {
+    switch (settings.style.display) {
+      // Settings menu is toggled "OFF"
+      case "none":
+        settings.style.display = "block"
+        note.style.display = "none"
+        break;
+      // Settings menu is toggled "ON"
+      case "block":
+        settings.style.display = "none"
+        note.style.display = "initial"
+        break;
+      default: 
+        settings.style.display = "none"
+        note.style.display = "initial"
+        break;
+      }
+  })
       
       // Add event listeners to the buttons
       saveBtn.addEventListener("click", showSavedMsg);
       clearBtn.addEventListener("click", showClearedMsg);
       
       function showSavedMsg() {
-        savedMsg.style.display = "block";
+        statusMsg.style.display = "block";
+        statusMsg.innerText = 'Saved'
         setTimeout(() => {
-          savedMsg.style.display = "none";
-        }, 1000);
+          statusMsg.style.display = "none";
+          statusMsg.innerText = ''
+        }, 2000);
       }
       
       function showClearedMsg() {
-        clearedMsg.style.display = "block";
+        statusMsg.style.display = "block";
+        statusMsg.innerText = 'Cleared'
         setTimeout(() => {
-          clearedMsg.style.display = "none";
-        }, 1000);
+          statusMsg.style.display = "none";
+          statusMsg.innerText = ''
+        }, 2000);
       }
 
 
