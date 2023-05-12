@@ -4,46 +4,153 @@
   padding: 0;
 }
 
-#note {
-  overflow-y: auto;
-  border: 1px solid #ccc;
-  padding: 1rem;
-  background-color: transparent;
+:root {
+  --white: #fff;
+  --grey-100: #f5f5f5;
+  --grey-200: #eeeeee;
+  --grey-300: #e0e0e0;
+  --grey-400: #bdbdbd;
+  --grey-500: #9e9e9e;
+  --grey-600: #757575;
+  --grey-700: #616161;
+  --grey-800: #424242;
+  --grey-900: #212121;
+  --black: #000;
+  --blue-100: #e3f2fd;
+  --blue-200: #bbdefb;
+  --blue-300: #90caf9;
+  --blue-400: #64b5f6;
+  --blue-500: #42a5f5;
+  --blue-600: #2196f3;
+  --blue-700: #1e88e5;
+  --blue-800: #1976d2;
+  --blue-900: #1565c0;
+  --blue-a100: #82b1ff;
+  --blue-a200: #448aff;
+  --blue-a400: #2979ff;
+  --blue-a700: #2962ff;
+  --red-100: #ffebee;
+  --red-200: #ffcdd2;
+  --red-300: #ef9a9a;
+  --red-400: #e57373;
+  --red-500: #f44336;
+  --red-600: #e53935;
+  --red-700: #d32f2f;
+  --red-800: #c62828;
+  --red-900: #b71c1c;
+  --red-a100: #ff8a80;
+  --red-a200: #ff5252;
+  --red-a400: #ff1744;
+  --red-a700: #d50000;
+  --green-100: #e8f5e9;
+  --green-200: #c8e6c9;
+  --green-300: #a5d6a7;
+  --green-400: #81c784;
+  --green-500: #4caf50;
+  --green-600: #43a047;
+  --green-700: #388e3c;
+  --green-800: #2e7d32;
+  --green-900: #1b5e20;
+  --green-a100: #b9f6ca;
+  --green-a200: #69f0ae;
+  --green-a400: #00e676;
+  --green-a700: #00c853;
+  --app-width: 700px;
+  --app-height: 500px;
 }
 
-div {
-  margin: 0;
+#app {
+  display: initial;
+  width: var(--app-width);
+  height: var(--app-height);
+}
+
+#note {
+  display: initial;
+  width: var(--app-width);
+  height: var(--app-height);
+  overflow-y: auto;
+  resize: none;
+}
+
+#settings {
+  display: block;
+  width: var(--app-width);
+  height: var(--app-height);
+  padding: 2rem;
+  font-size: 1rem;
+}
+
+#settingsForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: auto;
+  width: 25%;
+}
+
+#settingsForm > label,
+#settingsForm > input,
+#settingsForm > select {
+  display: block;
+  white-space: unset;
+  margin: 0 0 0.75rem 0;
   padding: 0;
+}
+
+#settingsForm > label {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-top: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+#settingsForm > select {
+  height: 2rem;
+}
+
+#settingsForm > input#bgColor,
+#settingsForm > input#fontColor {
+  width: 100%;
+  height: 2rem;
+  border: none;
+  border-radius: 5px;
+  padding: 0rem;
+  font-size: 1rem;
 }
 
 textarea {
   resize: none;
   margin: 0;
-  padding: 0;
-  background-color: transparent;
+  padding: 1rem;
+  border: none;
   outline: none;
 }
 
 textarea:active {
   outline: none;
+  border: none;
 }
 
+/* #region Buttons */
 #btnContainer {
   display: flex;
   justify-content: flex-end;
   margin: 0.5rem 1rem 0.5rem 0;
+  width: 100%;
+  position: relative;
 }
 
 button {
   background-color: #4caf50;
   border: none;
   color: white;
-  padding: 10px 20px;
+  padding: 0.75rem 1.25rem;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
-  margin-right: 10px;
+  font-size: 1rem;
+  margin-right: 0.5rem;
   border-radius: 5px;
   cursor: pointer;
   box-shadow: 0px 1px 5px 0 rgba(0, 0, 0, 0.5);
@@ -52,10 +159,6 @@ button {
 button:disabled {
   background-color: #ccc;
   cursor: not-allowed;
-}
-
-button#clearBtn {
-  background-color: #f44336; /* Red */
 }
 
 button:active {
@@ -70,21 +173,34 @@ button:focus {
 button:hover {
   box-shadow: 0px 1px 5px 0 rgba(0, 0, 0, 0.5);
 }
-span.saved,
-span.cleared {
+
+button#settingsBtn {
+  background-color: lightgrey;
+  color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 0;
+  left: 0.5rem;
+}
+
+button#clearBtn {
+  background-color: #f44336; /* Red */
+}
+/* #endregion */
+
+span.status {
   display: none;
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #4caf50;
   color: white;
+  background-color: var(--green-500);
   padding: 5px 10px;
   border-radius: 5px;
+  transform: translate(-50%, -50%);
   z-index: 1;
 }
 
-.verify {
+.status {
   display: flex;
   justify-content: center;
   align-items: center;

@@ -9,21 +9,55 @@
     <title>Tabloid</title>
   </head>
   <body>
-    <div>
-      <textarea
-        name="note"
-        id="note"
-        cols="80"
-        rows="30"
-        style="resize: none"
-      ></textarea>
+    <div id="app">
+      <div id="settings" style="display: none">
+        <!-- font dropdown -->
+        <form id="settingsForm">
+          <label for="font">Font Style</label>
+          <select name="font" id="font">
+            <option value="Arial">Arial</option>
+            <option value="Courier New">Courier New</option>
+            <option value="Times New Roman">Times New Roman</option>
+            <option value="Verdana">Verdana</option>
+            <option value="Verdana">Monospace</option>
+          </select>
+          <!-- font size dropdown -->
+          <label for="fontSize">Font Size</label>
+          <select name="fontSize" id="fontSize">
+            <option value="12">Small</option>
+            <option value="14">Shmedium</option>
+            <option value="16">Medium</option>
+            <option value="18">Large</option>
+          </select>
+          <!-- font color -->
+          <label for="fontColor">Font Color</label>
+          <input type="color" name="fontColor" id="fontColor" />
+          <!-- background color -->
+          <label for="bgColor">Background Color</label>
+          <input type="color" name="bgColor" id="bgColor" />
+          <!-- text alignment -->
+          <label for="textAlign">Text Alignment</label>
+          <select name="textAlign" id="textAlign">
+            <option value="left">Left</option>
+            <option value="center">Center</option>
+            <option value="right">Right</option>
+          </select>
+          <!-- light mode / dark mode -->
+          <label for="theme">Theme</label>
+          <select name="theme" id="theme">
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+          </select>
+        </form>
+      </div>
+      <textarea name="note" id="note" cols="80" rows="30"></textarea>
       <div id="btnContainer">
-        <div class="verify">
-          <span id="saved" style="display: none">Saved</span>
-          <span id="cleared" style="display: none">Cleared</span>
+        <button id="settingsBtn" class="">Settings</button>
+        <div class="statusContainer">
+          <span id="statusMsg" style="display: none"></span>
         </div>
-        <button id="saveBtn" class="text-xl bg-blue-500">Save</button>
-        <button id="clearBtn" class="bg-blue-500">Clear</button>
+        <button id="saveBtn" class="">Save</button>
+        <button id="clearBtn" class="">Clear</button>
       </div>
     </div>
   </body>
