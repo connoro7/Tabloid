@@ -6,21 +6,24 @@ document.addEventListener('DOMContentLoaded', () => {
   const clearBtn = document.querySelector("#clearBtn")
   const settingsBtn = document.querySelector("#settingsBtn");
   const statusMsg = document.querySelector("status");
+  const searchBar = document.querySelector('#searchBar')
+  const searchResults = document.querySelector('#searchResults')
+  const searchResultsBody = document.querySelector('#searchResultsBody')
 
-    // Get the current tab's URL
-  chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
+  // Get the current tab's URL
+  chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
     const url = tabs[0].url;
-  
+
     // Check if there's a note saved for this URL
     const note = localStorage.getItem(url);
-    
+
     // If a note was found, display it in the text area
     if (note) {
       // const textArea = document.querySelector("#note");
       textArea.value = note;
     }
   });
-  
+
   saveBtn.addEventListener('click', () => {
     const text = textArea.value;
 
@@ -33,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     });
   })
-  
+
   clearBtn.onclick = () => {
     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
       const url = tabs[0].url;
@@ -55,36 +58,68 @@ document.addEventListener('DOMContentLoaded', () => {
         settings.style.display = "none"
         note.style.display = "initial"
         break;
-      default: 
+      default:
         settings.style.display = "none"
         note.style.display = "initial"
         break;
-      }
+    }
   })
-      
-      // Add event listeners to the buttons
-      saveBtn.addEventListener("click", showSavedMsg);
-      clearBtn.addEventListener("click", showClearedMsg);
-      
-      function showSavedMsg() {
-        statusMsg.style.display = "block";
-        statusMsg.innerText = 'Saved'
-        setTimeout(() => {
-          statusMsg.style.display = "none";
-          statusMsg.innerText = ''
-        }, 2000);
-      }
-      
-      function showClearedMsg() {
-        statusMsg.style.display = "block";
-        statusMsg.innerText = 'Cleared'
-        setTimeout(() => {
-          statusMsg.style.display = "none";
-          statusMsg.innerText = ''
-        }, 2000);
-      }
+
+  // Add event listeners to the buttons and search bar
+  saveBtn.addEventListener("click", showSavedMsg);
+  clearBtn.addEventListener("click", showClearedMsg);
+  searchBar.addEventListener("input", search)
+
+  function showSavedMsg() {
+    statusMsg.style.display = "block";
+    statusMsg.innerText = 'Saved'
+    setTimeout(() => {
+      statusMsg.style.display = "none";
+      statusMsg.innerText = ''
+    }, 2000);
+  }
+  function showClearedMsg() {
+    statusMsg.style.display = "block";
+    statusMsg.innerText = 'Cleared'
+    setTimeout(() => {
+      statusMsg.style.display = "none";
+      statusMsg.innerText = ''
+    }, 2000);
+  }
 
 
+  function search(event) {
+    if (event.target.value !== '') {
+      searchResults.style.display = 'block'
+      searchResultsBody.innerHTML = ''
+
+      const results = []
+      const searchValue = event.target.value
+
+      for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i)
+        const value = localStorage.getItem(key)
+
+        if (key.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase()) || 
+            value.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase())) {
+          results.push({ url: key, note: value })
+        }
+
+      }
+
+      results.forEach(pair => {
+        const result = document.createElement('tr')
+        result.innerHTML = `
+            <td>${pair.url}</td>
+            <td>${pair.note}</td>
+          `
+        searchResultsBody.appendChild(result)
+      })
+    } else {
+      searchResults.style.display = 'none'
+      searchResultsBody.innerHTML = ''
+    }
+  }
 })
 
 
