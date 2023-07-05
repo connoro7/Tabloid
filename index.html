@@ -10,8 +10,6 @@
   </head>
   <body>
     <div id="app">
-
-      <!-- VVVVVVV -->
       <div id="searchResults" style="display: none">
         <table>
           <thead>
@@ -20,13 +18,9 @@
               <th>Note</th>
             </tr>
           </thead>
-          <tbody id="searchResultsBody">
-            
-          </tbody>
+          <tbody id="searchResultsBody"></tbody>
         </table>
       </div>
-      <!-- ^^^^^^^ -->
-
       <div id="settings" style="display: none">
         <!-- font dropdown -->
         <form id="settingsForm">
@@ -73,9 +67,7 @@
         <div class="statusContainer">
           <span id="statusMsg" style="display: none"></span>
         </div>
-        <!-- VVVVV -->
-        <input type="text" name="searchBar" id="searchBar">
-        <!-- ^^^^^ -->
+        <input type="text" name="searchBar" id="searchBar" placeholder="Search notes">
         <button id="saveBtn" class="">Save</button>
         <button id="clearBtn" class="">Clear</button>
       </div>

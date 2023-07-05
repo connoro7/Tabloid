@@ -99,11 +99,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const key = localStorage.key(i)
         const value = localStorage.getItem(key)
 
-        if (key.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase()) || 
+        if (key.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase()) ||
             value.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase())) {
           results.push({ url: key, note: value })
         }
-
       }
 
       results.forEach(pair => {
