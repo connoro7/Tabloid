@@ -105,6 +105,10 @@ document.addEventListener('DOMContentLoaded', () => {
           results.push({ url: key, note: value })
         }
       }
+      if (results.length === 0) {
+        searchResults.style.display = 'none'
+        return
+      }
 
       results.forEach(pair => {
         const result = document.createElement('tr')
