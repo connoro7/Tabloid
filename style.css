@@ -132,6 +132,15 @@ textarea:active {
   border: none;
 }
 
+#searchResult {
+  position: absolute;
+}
+
+#searchResults> table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
 /* #region Buttons */
 #btnContainer {
   display: flex;
@@ -184,6 +193,10 @@ button#settingsBtn {
 
 button#clearBtn {
   background-color: #f44336; /* Red */
+}
+
+input#searchBar {
+  margin-right: 2rem;
 }
 /* #endregion */
 
