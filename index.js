@@ -91,6 +91,8 @@ document.addEventListener('DOMContentLoaded', () => {
   function search(event) {
     if (event.target.value !== '') {
       searchResults.style.display = 'block'
+      textArea.value = ''
+      // clear the results body so it won't just keep stacking
       searchResultsBody.innerHTML = ''
 
       const results = []
@@ -101,12 +103,14 @@ document.addEventListener('DOMContentLoaded', () => {
         const value = localStorage.getItem(key)
 
         if (key.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase()) ||
-            value.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase())) {
+          value.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase())) {
           results.push({ url: key, note: value })
         }
       }
+
       if (results.length === 0) {
         searchResults.style.display = 'none'
+        // if note, show it
         return
       }
 
@@ -120,6 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
       })
     } else {
       searchResults.style.display = 'none'
+      // if note, show it
       searchResultsBody.innerHTML = ''
     }
   }
